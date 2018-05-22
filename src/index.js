@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //initially set to null because we want to reassign the value later. The value can only be set after the taskForm has been
   //created. When does this created? Only after we create a new taskListForm. Line 40 is where we reassign the variable's
   //value;
+  headings = []
   let taskForm = null;
   // let tasks = null;
 
@@ -37,7 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
         let priority = null;
         formData.get("priority") === "" ? priority = "low" : priority = formData.get("priority");
 
-        //Iterate through all the divs the div with id: lists
+
+        //get the div element constaining taskListname as the id
+
+          const taskLists = document.getElementById(taskListname).lastChild.children;
+          for(let i = 0; i < taskLists.length; i++) {
+            if(taskLists[i].innerText.split(" ")[1] === taskDescription) {
+              alert("Task descriptions must be unique");
+            } else {
+              //find the list div and attach the div wit
+            }
+          }
+
+
+
+
+
+
         const tasksDivs = document.querySelectorAll("#lists div")
         for(let i = 0; i < tasksDivs.length; i++) {
           //Check to see whether the heading matches the taskListname that is sent from the form
